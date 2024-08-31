@@ -6,9 +6,9 @@ import {fillCurrentConditions} from './modules/dom-utils'
 async function weatherWidget() {
     try {
         const currentWeather = await getWeather();
-        await fillCurrentConditions(currentWeather);
+        fillCurrentConditions(currentWeather);
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 }
 

@@ -10,13 +10,16 @@ export const getWeather = function () {
 
     return fetch(url.toString())
         .then(function(response) {
+            if (!response.ok) {
+                throw new Error(`HTTP ERROR: status: ${response.status}`);
+            }
             return response.json();
         })
-        .then(function(response) {
-            console.log(response);
-            return response;
+        .then(function(data) {
+            console.log(data); // debug -- TODO: remove when complete
+            return data;
         })
         .catch(function(err) {
-            console.log(err);
+            throw err;
         })
 }
