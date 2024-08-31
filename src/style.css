@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    --text-size-lg: 2rem;
+    --text-size-md: 1.5rem;
+    --text-size-sm: .75rem;
+}
+
+#current-weather {
+    display: grid;
+    grid-template-areas: 
+        'title title'
+        'icon icon';
+    grid-template-rows: 50px 100px;
+    grid-template-columns: 50%;
+    grid-auto-rows: auto;
+    align-items: center;
+    justify-items: center;
+    max-width: 500px;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+    }
+
+    .title {
+        grid-area: title;
+        font-size: var(--text-size-lg);
+    }
+
+    .icon {
+        grid-area: icon;
+    }
+
+    label {
+        font-size: var(--text-size-md);
+    }
+
+    .data {
+        border: 1px solid black;
+        border-radius: 999px;
+        padding: 5px;
+        min-width: auto;
+    }
+}
