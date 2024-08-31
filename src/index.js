@@ -7,16 +7,18 @@ import {
     fillWeatherIcon,
     fillCurrentConditions,
     fillWeatherGif,
+    onError,
 } from './modules/dom-utils'
 
 async function weatherWidget() {
     try {
         const weatherData = await getWeather(fillCurrentConditions);
-        let iconName = await weatherData.currentConditions.icon;
+        let iconName = weatherData.currentConditions.icon;
         fillWeatherIcon(iconName);
 
     } catch (err) {
         console.error(err);
+        onError();
     }
 }
 
