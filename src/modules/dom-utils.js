@@ -8,14 +8,21 @@ const humidity = document.querySelector('#humidity');
 const precipProb = document.querySelector('#precipProb');
 const weatherGif = document.querySelector('#current-weather-gif')
 
+export const fillWeatherIcon = function(iconName) {
+    console.log(iconName); // debug
+    icon['data-feather'] = iconName;
+    feather.replace();
+}
 
 export const fillCurrentConditions = function(weatherData) {
-    icon.textContent = weatherData.currentConditions.icon;
+    // icon.textContent = weatherData.currentConditions.icon;
     currTemp.textContent = `${weatherData.currentConditions.temp}°`;
     feelsLike.textContent = `${weatherData.currentConditions.feelslike}°`;
     humidity.textContent = `${weatherData.currentConditions.humidity}%`;
     precipProb.textContent = `${weatherData.currentConditions.precipprob}%`;
 }
+
+
 
 export const fillWeatherGif = function(gifData) {
     const n = Math.floor(Math.random() * gifData.data.length);
