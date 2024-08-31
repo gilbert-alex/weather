@@ -1,6 +1,6 @@
 // api-calls.js
 
-export const getWeather = function () {
+export const getWeather = async function (domCallback) {
     const url = new URL('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/seattle')
 
     url.searchParams.append('unitGroup', 'us');
@@ -17,9 +17,26 @@ export const getWeather = function () {
         })
         .then(function(data) {
             console.log(data); // debug -- TODO: remove when complete
-            return data;
+            domCallback(data);
+            return data; // return to main to do other stuff if i want
         })
         .catch(function(err) {
             throw err;
+        })
+}
+
+export const getGif = async function (searchTerm, domCallback) {
+    const url = new URL('http://api.giphy.com/v1/gifs/search');
+
+    url.searchParams.append('api_key', process.env.API_KEY_GIF);
+    url.searchParams.append('q', searchTerm);
+
+    return fetch(url.toString())
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            domCallback(data);
         })
 }
