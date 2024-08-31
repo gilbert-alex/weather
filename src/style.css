@@ -10,7 +10,12 @@ body {
     --text-size-sm: .75rem;
 }
 
-#current-weather {
+#wrapper {
+    width: 500px;
+    margin: 50px auto;
+}
+
+#current-weather-container {
     display: grid;
     grid-template-areas: 
         'title title'
@@ -20,7 +25,8 @@ body {
     grid-auto-rows: auto;
     align-items: center;
     justify-items: center;
-    max-width: 500px;
+    border: 2px solid black;
+    padding: 20px;
 
     div {
         display: flex;
@@ -48,4 +54,11 @@ body {
         padding: 5px;
         min-width: auto;
     }
+}
+
+#gif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
 }
